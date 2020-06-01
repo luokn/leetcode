@@ -1,0 +1,25 @@
+#include "leetcode.h"
+
+
+using namespace std;
+
+class Solution {
+public:
+	vector<int> grayCode(int n) {
+		vector<int> res;
+		const auto len = 1 << n;
+		res.reserve(len);
+		for (uint32_t i = 0; i < len; ++i)
+			res.push_back(i ^ (i >> 1));
+		return res;
+	}
+};
+
+inline void test() {
+	Solution solution;
+	const auto res = solution.grayCode(8);
+	for_each(res.cbegin(), res.cend(), [](const int& v) {
+		cout << bitset<8>(v) << endl;
+		});
+}
+

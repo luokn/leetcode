@@ -4,7 +4,7 @@ project(leetcode)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(leetcode "number-of-digit-one.cc")
+add_executable(leetcode "main.cc")
 
 
  
