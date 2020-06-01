@@ -1,5 +1,6 @@
-#include "leetcode.h"
+#pragma once
 
+#include "leetcode.h"
 
 using namespace std;
 

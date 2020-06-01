@@ -1,7 +1,9 @@
+#pragma once
 #include "leetcode.h"
+
 using namespace std;
 
-void dp_print(const vector<vector<bool>>& dp) {
+inline void dp_print(const vector<vector<bool>>& dp) {
 	system("cls");
 	for (auto&& vector : dp) {
 		for (auto&& val : vector) {

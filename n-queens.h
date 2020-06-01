@@ -1,8 +1,10 @@
+#pragma once
+
 #include "leetcode.h"
 
 using namespace std;
 
-void print_queen(const vector<string>& queen) {
+inline void print_queen(const vector<string>& queen) {
 	stringstream ss;
 	for (auto&& row : queen) {
 		for (auto&& c : row) {

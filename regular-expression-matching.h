@@ -1,8 +1,9 @@
+#pragma once
 #include "leetcode.h"
 
 using namespace std;
 
-void print_mem(const vector<vector<bool>>& mem) {
+inline void print_mem(const vector<vector<bool>>& mem) {
 	system("cls");
 	stringstream ss;
 	for (auto&& vector : mem) {
