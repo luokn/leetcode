@@ -4,9 +4,10 @@
 
 using namespace std;
 
-inline void dp_print(const vector<vector<int>>& dp) {
-    for (auto&& vec : dp) {
-        for (auto&& val : vec) {
+inline void print_dp(const vector<vector<int>> &dp) {
+    system("cls");
+    for (auto &&vec : dp) {
+        for (auto &&val : vec) {
             cout << setw(4) << val;
         }
         cout << endl;
@@ -14,33 +15,31 @@ inline void dp_print(const vector<vector<int>>& dp) {
 }
 
 class Solution {
-public:
-    int minDistance(const string& word1, const string& word2) {
-        const int m = word1.length() + 1;
-        const int n = word2.length() + 1;
-        vector<vector<int>> dp(m, vector<int>(n, 0));
-        for (auto i = 0; i < m; ++i)
+  public:
+    int minDistance(const string &w1, const string &w2) {
+        const size_t M = w1.length(), N = w2.length();
+        vector<vector<int>> dp(M, vector<int>(N, 0));
+        for (size_t i = 0; i <= M; ++i) {
             dp[i][0] = i;
-        for (auto i = 0; i < n; ++i)
+        }
+        for (size_t i = 0; i <= N; ++i) {
             dp[0][i] = i;
+        }
 
-        dp_print(dp);
-        system("cls");
+        // print_dp(dp);
 
-        for (auto i = 1; i < m; ++i) {
-            for (auto j = 1; j < n; ++j) {
-                const auto d = std::min(dp[i - 1][j], dp[i][j - 1]) + 1;
-                if (word1[i - 1] == word2[j - 1]) {
-                    dp[i][j] = std::min(d, dp[i - 1][j - 1]);
+        for (size_t i = 1; i <= M; ++i) {
+            for (size_t j = 1; j <= N; ++j) {
+                int dist = std::min(dp[i - 1][j], dp[i][j - 1]) + 1;
+                if (w1[i - 1] == w2[j - 1]) {
+                    dp[i][j] = std::min(dist, dp[i - 1][j - 1]);
                 } else {
-                    dp[i][j] = std::min(d, dp[i - 1][j - 1] + 1);
+                    dp[i][j] = std::min(dist, dp[i - 1][j - 1] + 1);
                 }
-
-                dp_print(dp);
-                system("cls");
+                // print_dp(dp);
             }
         }
-        return dp[word1.length()][word2.length()];
+        return dp[M][N];
     }
 };
 
@@ -48,4 +47,3 @@ inline void test() {
     Solution solution;
     cout << solution.minDistance("horse", "ros");
 }
-

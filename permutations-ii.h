@@ -1,33 +1,35 @@
 #pragma once
 #include "leetcode.h"
 
-using namespace  std;
+using namespace std;
 using namespace utils;
 
 class Solution {
-public:
-    static vector<vector<int>> permute_unique(vector<int>& nums) {
-        std::sort(nums.begin(), nums.end());
+  public:
+    static vector<vector<int>> permute_unique(vector<int> &numbers) {
+        std::sort(numbers.begin(), numbers.end());
         vector<vector<int>> res;
-        permute_unique(nums, 0, res);
+        permute_unique(numbers, 0, res);
         return res;
     }
 
-    static void permute_unique(vector<int>& nums, const int idx, vector<vector<int>>& res) {
-        if (idx == nums.size() - 1) {
-            res.push_back(nums);
+    static void permute_unique(vector<int> &numbers, const size_t hierarchy,
+                               vector<vector<int>> &res) {
+        if (hierarchy + 1 == numbers.size()) {
+            res.push_back(numbers);
         } else {
-            for (int i = idx; i < nums.size(); ++i) {
-                if (i != idx && nums[i] == nums[idx])
+            for (size_t i = hierarchy; i < numbers.size(); ++i) {
+                if (i != hierarchy && numbers[i] == numbers[hierarchy]) {
                     continue;
-                std::swap(nums[i], nums[idx]);
-                permute_unique(nums, i + 1, res);
+                }
+                std::swap(numbers[i], numbers[hierarchy]);
+                permute_unique(numbers, i + 1, res);
             }
         }
     }
 };
 
 inline void test() {
-    vector<int> v{ 2, 2, 1, 1 };
+    vector<int> v{2, 2, 1, 1};
     cout << Solution::permute_unique(v) << endl;
 }

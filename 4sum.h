@@ -11,9 +11,17 @@ class Solution {
 public:
     int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C, vector<int>& D) {
         size_t counter = 0;
-        map<int, int> map;
-        for (const int a : A) { for (const auto b : B) { ++map[a + b]; } }
-        for (const int c : C) { for (const auto d : D) { counter += map[-c - d]; } }
+        map<int, int> sum_map;
+        for (const int a : A) {
+            for (const int b : B) {
+                ++sum_map[a + b];
+            }
+        }
+        for (const int c : C) {
+            for (const int d : D) {
+                counter += sum_map[-c - d];
+            }
+        }
         return counter;
     }
 };

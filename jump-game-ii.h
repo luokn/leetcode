@@ -6,29 +6,30 @@ using namespace std;
 using namespace utils;
 
 class Solution {
-public:
-	int jump(const vector<int>& nums) {
-		if (nums.size() < 2)
-			return 0;
-		vector<int> dp(nums.size(), 0);
-		dp[nums.size() - 1] = -1;
-		auto start = 1;
-		for (auto i = 0; i < nums.size() && start < nums.size(); i++) {
-			if (nums[i] == 0)
-				continue;
-			const auto end = min(i + nums[i], static_cast<int>(nums.size() - 1));
-			while (start <= end) {
-				dp[start] = dp[i] + 1;
-				++start;
-				system("cls");
-				cout << dp << endl;
-			}
-		}
-		return dp[nums.size() - 1];
-	}
+  public:
+    int jump(const vector<int> &numbers) {
+        if (numbers.size() < 2)
+            return 0;
+        vector<int> dp(numbers.size(), 0);
+        dp[numbers.size() - 1] = -1;
+        size_t start = 1;
+        for (size_t i = 0; i < numbers.size() && start < numbers.size(); i++) {
+            if (numbers[i] == 0)
+                continue;
+            const size_t end = min(i + numbers[i], numbers.size() - 1);
+            while (start <= end) {
+                dp[start++] = dp[i] + 1;
+                // system("cls");
+                // cout << dp << endl;
+            }
+        }
+        return dp[numbers.size() - 1];
+    }
 };
 
 inline void test() {
-	Solution solution;
-	cout << solution.jump({ 4,2,3,1,2,6,1,5,1,1,0,1,2,0,0,0,0,0 }) << endl;
+    Solution solution;
+    cout << solution.jump(
+                {4, 2, 3, 1, 2, 6, 1, 5, 1, 1, 0, 1, 2, 0, 0, 0, 0, 0})
+         << endl;
 }
