@@ -120,7 +120,7 @@ inline void item_print(std::ostream &out, const bool item) {
 }
 
 template <typename T>
-void operator<<(std::ostream &out, const std::vector<T> &vector) {
+std::ostream &operator<<(std::ostream &out, const std::vector<T> &vector) {
     auto it = vector.cbegin();
     out << "[";
     if (it != vector.cend()) {
@@ -133,6 +133,7 @@ void operator<<(std::ostream &out, const std::vector<T> &vector) {
         }
     }
     out << "]" << std::endl;
+    return out;
 }
 
 template <typename T>
