@@ -26,124 +26,121 @@
 #include <vector>
 
 struct ListNode {
-    int value;
-    ListNode *next;
-    explicit ListNode(const int value) : value(value), next(nullptr) {}
+    int val = 0;
+    ListNode* next = nullptr;
 };
 
 struct TreeNode {
-    int value;
-    TreeNode *left;
-    TreeNode *right;
-    explicit TreeNode(const int value)
-        : value(value), left(nullptr), right(nullptr) {}
+    int val = 0;
+    TreeNode* left = nullptr;
+    TreeNode* right = nullptr;
 };
 
 namespace utils {
 
-template <typename Fn> void foreach (ListNode *node, Fn && fn) {
-    while (node != nullptr) {
-        fn(node->value);
-        node = node->next;
+    template <typename Fn> void foreach(ListNode* n, Fn&& fn) {
+        while (n != nullptr) {
+            fn(n->val);
+            n = n->next;
+        }
     }
-}
 
-template <typename T = int, typename TIterable = std::initializer_list<T>>
-ListNode *make_nodes(TIterable &&values) {
-    auto iter = std::begin(values);
-    auto end = std::end(values);
-    if (iter == end)
-        return nullptr;
-    ListNode *first = new ListNode(*iter++);
-    for (ListNode *cur = first; iter != end; ++iter, cur = cur->next) {
-        cur->next = new ListNode(static_cast<int>(*iter));
+    template <typename T = int, typename TIterable = std::initializer_list<T>>
+    ListNode* make_nodes(TIterable&& iter) {
+        auto it = std::begin(iter);
+        auto end = std::end(iter);
+        if (it == end) {
+            return nullptr;
+        }
+        auto* first = new ListNode(*it++);
+        for (ListNode* cur = first; it != end; ++it, cur = cur->next) {
+            cur->next = new ListNode{ static_cast<int>(*iter) };
+        }
+        return first;
     }
-    return first;
-}
 
-inline void del_nodes(ListNode *node) {
-    for (ListNode *next; node != nullptr; node = next) {
-        next = node->next;
-        delete node;
+    inline void del_nodes(ListNode* n) {
+        for (ListNode* next; n != nullptr; n = next) {
+            next = n->next;
+            delete n;
+        }
     }
-}
 
-inline void print_nodes(ListNode *node) {
-    if (node == nullptr) {
-        std::cout << "[]" << std::endl;
-        return;
+    inline void print_nodes(ListNode* n) {
+        if (n == nullptr) {
+            std::cout << "[]" << std::endl;
+            return;
+        }
+        while (n->next != nullptr) {
+            std::cout << "[" << n->val << "] -> ";
+            n = n->next;
+        }
+        std::cout << "[" << n->val << "]" << std::endl;
     }
-    while (node->next != nullptr) {
-        std::cout << "[" << node->value << "] -> ";
-        node = node->next;
+
+    inline TreeNode* make_tree(const int v, TreeNode* ln = nullptr,
+        TreeNode* rn = nullptr) {
+        return new TreeNode{ v,ln,rn };;
     }
-    std::cout << "[" << node->value << "]" << std::endl;
-}
 
-inline TreeNode *make_tree(const int value, TreeNode *left = nullptr,
-                           TreeNode *right = nullptr) {
-    const auto node = new TreeNode(value);
-    node->left = left;
-    node->right = right;
-    return node;
-}
-
-inline void delete_tree(TreeNode *node) {
-    if (node == nullptr)
-        return;
-    delete_tree(node->left);
-    delete_tree(node->right);
-    delete node;
-}
-
-template <class TIterable> void iterable_print(const TIterable &iterable) {
-    auto it = std::begin(iterable);
-    auto end = std::end(iterable);
-    std::cout << "[";
-    if (it != end) {
-        std::cout << *it;
-        ++it;
+    inline void delete_tree(TreeNode* n) {
+        if (n == nullptr) {
+            return;
+        }
+        delete_tree(n->left);
+        delete_tree(n->right);
+        delete n;
     }
-    while (it != end) {
-        std::cout << ", " << *it;
-        ++it;
-    }
-    std::cout << "]" << std::endl;
-}
 
-inline void item_print(std::ostream &out, const int item) {
-    out << std::setw(4) << item;
-}
-
-inline void item_print(std::ostream &out, const bool item) {
-    out << std::setw(4) << (item ? "O" : "X");
-}
-
-template <typename T>
-std::ostream &operator<<(std::ostream &out, const std::vector<T> &vector) {
-    auto it = vector.cbegin();
-    out << "[";
-    if (it != vector.cend()) {
-        item_print(out, *it);
-        ++it;
-        while (it != vector.cend()) {
-            out << ",";
-            item_print(out, *it);
+    template <typename TIterable> void print(TIterable&& iter) {
+        auto it = std::begin(iter);
+        auto end = std::end(iter);
+        std::cout << "[";
+        if (it != end) {
+            std::cout << *it;
             ++it;
         }
-    }
-    out << "]" << std::endl;
-    return out;
-}
-
-template <typename T>
-void operator<<(std::ostream &out, const std::vector<std::vector<T>> &matrix) {
-    for (auto &&vec : matrix) {
-        for (auto &&val : vec) {
-            item_print(out, val);
+        while (it != end) {
+            std::cout << ", " << *it;
+            ++it;
         }
-        out << std::endl;
+        std::cout << "]" << std::endl;
     }
-}
+
+    inline void print(std::ostream& out, const int it) {
+        out << std::setw(4) << it;
+    }
+
+    inline void print(std::ostream& out, const bool it) {
+        out << std::setw(4) << (it ? "O" : "X");
+    }
+
+    template <typename T>
+    std::ostream& operator<<(std::ostream& out, const std::vector<T>& vec) {
+        auto it = vec.cbegin();
+        auto end = vec.cend();
+        out << "[";
+        if (it != end) {
+            print(out, *it);
+            ++it;
+            while (it != end) {
+                out << ",";
+                print(out, *it);
+                ++it;
+            }
+        }
+        out << "]" << std::endl;
+        return out;
+    }
+
+    template <typename T>
+    void operator<<(std::ostream& out, const std::vector<std::vector<T>>& mat) {
+        for (auto&& vec : mat) {
+            for (auto&& v : vec) {
+                print(out, v);
+            }
+            out << std::endl;
+        }
+    }
 
 } // namespace utils

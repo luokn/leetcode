@@ -12,14 +12,14 @@ public:
     int fourSumCount(vector<int>& A, vector<int>& B, vector<int>& C, vector<int>& D) {
         size_t counter = 0;
         map<int, int> sum_map;
-        for (const int a : A) {
-            for (const int b : B) {
+        for (const auto a : A) {
+            for (const auto b : B) {
                 ++sum_map[a + b];
             }
         }
-        for (const int c : C) {
-            for (const int d : D) {
-                counter += sum_map[-c - d];
+        for (const auto c : C) {
+            for (const auto d : D) {
+                counter += sum_map[-(c + d)];
             }
         }
         return counter;
@@ -32,5 +32,5 @@ inline void test() {
     vector<int> b{ -1, 1, 0 };
     vector<int> c{ 0, 0, 1 };
     vector<int> d{ -1, 1, 1 };
-    std::cout << solution.fourSumCount(a, b, c, d) << endl;
+    cout << solution.fourSumCount(a, b, c, d) << endl;
 }

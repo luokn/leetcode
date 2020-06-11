@@ -18,8 +18,8 @@ class Solution {
             return 0;
         const int ls = max(0, find_max_sum(root->left, res));
         const int rs = max(0, find_max_sum(root->right, res));
-        res = max(res, root->value + ls + rs);
-        return root->value + max(0, max(ls, rs));
+        res = max(res, root->val + ls + rs);
+        return root->val + max(0, max(ls, rs));
     }
 };
 

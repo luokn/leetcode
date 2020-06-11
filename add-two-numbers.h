@@ -12,40 +12,40 @@ class Solution {
         ListNode *ret = nullptr, *cur = nullptr;
 
         if (ln != nullptr && rn != nullptr) {
-            val = ln->value + rn->value + flow;
+            val = ln->val + rn->val + flow;
             flow = val / 10;
-            cur = ret = new ListNode(val % 10);
+            cur = ret = new ListNode{ val % 10 };
             ln = ln->next;
             rn = rn->next;
         }
 
         while (ln != nullptr && rn != nullptr) {
-            val = ln->value + rn->value + flow;
+            val = ln->val + rn->val + flow;
             ln = ln->next;
             rn = rn->next;
             flow = val / 10;
-            cur->next = new ListNode(val % 10);
+            cur->next = new ListNode{ val % 10 };
             cur = cur->next;
         }
 
         while (ln != nullptr) {
-            val = ln->value + flow;
+            val = ln->val + flow;
             ln = ln->next;
             flow = val / 10;
-            cur->next = new ListNode(val % 10);
+            cur->next = new ListNode{ val % 10 };
             cur = cur->next;
         }
 
         while (rn != nullptr) {
-            val = rn->value + flow;
+            val = rn->val + flow;
             rn = rn->next;
             flow = val / 10;
-            cur->next = new ListNode(val % 10);
+            cur->next = new ListNode{ val % 10 };
             cur = cur->next;
         }
 
         if (flow != 0) {
-            cur->next = new ListNode(flow);
+            cur->next = new ListNode{ flow };
         }
         return ret;
     }
