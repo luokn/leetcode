@@ -83,7 +83,6 @@ inline void print_nodes(ListNode *n) {
 inline TreeNode *make_tree(const int v, TreeNode *ln = nullptr,
                            TreeNode *rn = nullptr) {
     return new TreeNode{v, ln, rn};
-    ;
 }
 
 inline void delete_tree(TreeNode *n) {
