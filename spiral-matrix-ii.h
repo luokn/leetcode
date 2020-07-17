@@ -12,17 +12,21 @@ class Solution {
         auto x = 0, y = n - 1, cur = 0;
         n = 0;
         while (y > x) {
-            for (cur = x; cur <= y; ++cur)
+            for (cur = x; cur <= y; ++cur) {
                 res[x][cur] = ++n;
+            }
 
-            for (cur = x + 1; cur <= y; ++cur)
+            for (cur = x + 1; cur <= y; ++cur) {
                 res[cur][y] = ++n;
+            }
 
-            for (cur = y - 1; cur >= x; --cur)
+            for (cur = y - 1; cur >= x; --cur) {
                 res[y][cur] = ++n;
+            }
 
-            for (cur = y - 1; cur >= x + 1; --cur)
+            for (cur = y - 1; cur >= x + 1; --cur) {
                 res[cur][x] = ++n;
+            }
 
             ++x;
             --y;
