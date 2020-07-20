@@ -28,7 +28,6 @@
 struct ListNode {
     int val = 0;
     ListNode *next = nullptr;
-
     explicit ListNode(int val) : val(val) {}
 };
 
@@ -48,17 +47,17 @@ template <typename Fn> void foreach (ListNode *n, Fn && fn) {
 }
 
 template <typename T = int, typename TIterable = std::initializer_list<T>>
-ListNode *make_nodes(TIterable &&iter) {
-    auto it = std::begin(iter);
-    auto end = std::end(iter);
-    if (it == end) {
+ListNode *make_nodes(TIterable &&iterable) {
+    auto end = std::end(iterable);
+    auto iter = std::begin(iterable);
+    if (iter == end) {
         return nullptr;
     }
-    auto *first = new ListNode(*it++);
-    for (ListNode *cur = first; it != end; ++it, cur = cur->next) {
-        cur->next = new ListNode(static_cast<int>(*it));
+    auto *head = new ListNode(*iter++);
+    for (ListNode *p = head; iter != end; ++iter, p = p->next) {
+        p->next = new ListNode(static_cast<int>(*iter));
     }
-    return first;
+    return head;
 }
 
 inline void del_nodes(ListNode *n) {
@@ -85,28 +84,28 @@ inline TreeNode *make_tree(const int v, TreeNode *ln = nullptr,
     return new TreeNode{v, ln, rn};
 }
 
-inline void delete_tree(TreeNode *n) {
+inline void del_tree(TreeNode *n) {
     if (n == nullptr) {
         return;
     }
-    delete_tree(n->left);
-    delete_tree(n->right);
+    del_tree(n->left);
+    del_tree(n->right);
     delete n;
 }
 
-template <typename TIterable> void print(TIterable &&iter) {
-    auto it = std::begin(iter);
-    auto end = std::end(iter);
+template <typename TIterable> void print(TIterable &&iterable) {
+    auto end = std::end(iterable);
+    auto iter = std::begin(iterable);
     std::cout << "[";
-    if (it != end) {
-        std::cout << *it;
-        ++it;
+    if (iter != end) {
+        std::cout << *iter;
+        ++iter;
     }
-    while (it != end) {
-        std::cout << ", " << *it;
-        ++it;
+    while (iter != end) {
+        std::cout << ", " << *iter;
+        ++iter;
     }
-    std::cout << "]" << std::endl;
+    std::cout << "]";
 }
 
 inline void print(std::ostream &out, const int it) {
@@ -119,19 +118,7 @@ inline void print(std::ostream &out, const bool it) {
 
 template <typename T>
 std::ostream &operator<<(std::ostream &out, const std::vector<T> &vec) {
-    auto it = vec.cbegin();
-    auto end = vec.cend();
-    out << "[";
-    if (it != end) {
-        print(out, *it);
-        ++it;
-        while (it != end) {
-            out << ",";
-            print(out, *it);
-            ++it;
-        }
-    }
-    out << "]" << std::endl;
+    print(vec);
     return out;
 }
 

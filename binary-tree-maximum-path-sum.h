@@ -28,5 +28,5 @@ inline void test() {
     const auto tree = make_tree(-10, make_tree(9),
                                 make_tree(20, make_tree(15), make_tree(17)));
     cout << solution.maxPathSum(tree) << endl;
-    delete_tree(tree);
+    del_tree(tree);
 }
