@@ -1,3 +1,3 @@
-#include "substring-with-concatenation-of-all-words.h"
+#include "dungeon-game.h"
 
 int main(int argc, char *argv[]) { test(); }
