@@ -38,5 +38,4 @@ inline void test() {
     Solution  solution;
     TreeNode* root = TN(1, TN(2, TN(3), TN(4)), TN(5, nullptr, TN(6)));
     solution.flatten(root);
-    ;
 }
