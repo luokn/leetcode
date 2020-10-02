@@ -9,7 +9,7 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     int countDigitOne(const int n) {
         int64_t counter = 0;
         for (int64_t x = 1, div = 10; x <= n; x = div, div *= 10) {

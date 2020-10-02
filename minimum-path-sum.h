@@ -8,11 +8,10 @@
 
 using namespace std;
 
-
 class Solution {
-  public:
-    int minPathSum(const vector<vector<int>> &grid) {
-        const size_t M = grid.size(), N = grid[0].size();
+public:
+    int minPathSum(const vector<vector<int>>& grid) {
+        const size_t        M = grid.size(), N = grid[0].size();
         vector<vector<int>> dp(M, vector<int>(N, 0));
         dp[0][0] = grid[0][0];
         for (size_t i = 1; i < M; i++)
@@ -27,7 +26,6 @@ class Solution {
         return dp.back().back();
     }
 };
-
 
 inline void test() {
     Solution solution;

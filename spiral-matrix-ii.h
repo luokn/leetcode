@@ -4,30 +4,22 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     vector<vector<int>> generateMatrix(int n) {
         vector<vector<int>> res(n);
-        for (auto &vector : res)
+        for (auto& vector : res)
             vector.resize(n);
         auto x = 0, y = n - 1, cur = 0;
         n = 0;
         while (y > x) {
-            for (cur = x; cur <= y; ++cur) {
+            for (cur = x; cur <= y; ++cur)
                 res[x][cur] = ++n;
-            }
-
-            for (cur = x + 1; cur <= y; ++cur) {
+            for (cur = x + 1; cur <= y; ++cur)
                 res[cur][y] = ++n;
-            }
-
-            for (cur = y - 1; cur >= x; --cur) {
+            for (cur = y - 1; cur >= x; --cur)
                 res[y][cur] = ++n;
-            }
-
-            for (cur = y - 1; cur >= x + 1; --cur) {
+            for (cur = y - 1; cur >= x + 1; --cur)
                 res[cur][x] = ++n;
-            }
-
             ++x;
             --y;
         }
@@ -45,9 +37,9 @@ class Solution {
 
 inline void test() {
     Solution solution;
-    auto matrix = solution.generateMatrix(10);
-    for (auto &&vector : matrix) {
-        for (auto &&value : vector) {
+    auto     matrix = solution.generateMatrix(10);
+    for (auto&& vector : matrix) {
+        for (auto&& value : vector) {
             cout << setiosflags(ios::left) << setw(5) << value;
         }
         cout << endl;

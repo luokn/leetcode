@@ -5,13 +5,13 @@
 using namespace std;
 
 class Solution {
-  public:
-    string minWindow(const string &str, const string &tar) {
+public:
+    string minWindow(const string& str, const string& tar) {
         unordered_map<char, bool> map;
         for (auto ch : tar) {
             map[ch] = false;
         }
-        auto m_width = INT32_MAX, m_l = 0, m_r = 0, counter = 0, cur = 0;
+        auto       m_width = INT32_MAX, m_l = 0, m_r = 0, counter = 0, cur = 0;
         deque<int> dq;
         for (; cur < str.length() && dq.size() < tar.length(); ++cur) {
             if (auto it = map.find(str[cur]); it != map.end()) {
@@ -28,8 +28,8 @@ class Solution {
         }
 
         if (counter == tar.size()) {
-            m_r = dq.front() + 1;
-            m_l = dq.back();
+            m_r     = dq.front() + 1;
+            m_l     = dq.back();
             m_width = m_r - m_l;
         }
 
@@ -52,8 +52,8 @@ class Solution {
                     const auto width = dq.front() - dq.back() + 1;
                     if (width < m_width) {
                         m_width = width;
-                        m_r = dq.front() + 1;
-                        m_l = dq.back();
+                        m_r     = dq.front() + 1;
+                        m_l     = dq.back();
                     }
                 }
             }

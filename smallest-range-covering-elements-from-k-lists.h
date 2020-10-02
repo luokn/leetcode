@@ -10,7 +10,7 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     vector<int> smallestRange(const vector<vector<int>>& nums) {
         const int                       N    = nums.size();
         int                             xmin = INT_MAX, xmax = INT_MIN;
@@ -65,7 +65,5 @@ ostream& operator<<(ostream& os, const vector<int>& vec) {
 
 inline void test() {
     Solution solution;
-    cout << solution.smallestRange(
-                {{4, 10, 15, 24, 26}, {0, 9, 12, 20}, {5, 18, 22, 30}})
-         << endl;
+    cout << solution.smallestRange({{4, 10, 15, 24, 26}, {0, 9, 12, 20}, {5, 18, 22, 30}}) << endl;
 }

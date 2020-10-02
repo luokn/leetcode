@@ -5,12 +5,11 @@ using namespace std;
 using namespace utils;
 
 class Solution {
-  public:
-    ListNode *rotateRight(ListNode *head, int k) {
-        if (head == nullptr)
-            return nullptr;
-        ListNode *tail = nullptr;
-        auto count = 1;
+public:
+    ListNode* rotateRight(ListNode* head, int k) {
+        if (head == nullptr) return nullptr;
+        ListNode* tail  = nullptr;
+        auto      count = 1;
         for (tail = head; tail->next != nullptr; tail = tail->next)
             ++count;
         tail->next = head;
@@ -24,9 +23,9 @@ class Solution {
 };
 
 inline void test() {
-    Solution solution;
+    Solution          solution;
     const vector<int> vec{0};
-    const auto node = make_nodes(vec);
+    const auto        node = make_nodes(vec);
     foreach (node, [](const int v) { cout << v << " "; })
         ;
     cout << endl;

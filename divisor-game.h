@@ -8,7 +8,7 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     bool divisorGame(int N) { return !(N & 1); }
 };
 

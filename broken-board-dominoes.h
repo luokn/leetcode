@@ -7,9 +7,9 @@
 
 using namespace std;
 
-ostream &operator<<(ostream &os, const std::vector<vector<char>> &board) {
-    for (auto &&row : board) {
-        for (auto &&col : row) {
+ostream& operator<<(ostream& os, const std::vector<vector<char>>& board) {
+    for (auto&& row : board) {
+        for (auto&& col : row) {
             os << col << "  ";
         }
         os << endl;
@@ -18,14 +18,14 @@ ostream &operator<<(ostream &os, const std::vector<vector<char>> &board) {
 }
 
 class Solution {
-  public:
-    int domino(int n, int m, const vector<vector<int>> &broken) {
+public:
+    int domino(int n, int m, const vector<vector<int>>& broken) {
         vector<vector<char>> board(n, vector<char>(m, 0));
-        for (auto &&xy : broken) {
+        for (auto&& xy : broken) {
             board[xy[0]][xy[1]] = 'X';
         }
-        const int L = (n * m - broken.size()) / 2;
-        int res = 0;
+        const int                    L   = (n * m - broken.size()) / 2;
+        int                          res = 0;
         stack<tuple<char, int, int>> opr_stk;
         for (int row = 0, col = 0;;) {
             if (board[row][col] == 0) {
@@ -57,9 +57,8 @@ class Solution {
                     return L;
                 }
                 for (;;) {
-                    if (opr_stk.empty())
-                        return res;
-                    auto &[dir, x, y] = opr_stk.top();
+                    if (opr_stk.empty()) return res;
+                    auto& [dir, x, y] = opr_stk.top();
                     if (dir == '-') {
                         board[x][y + 1] = 0;
                         if (x + 1 < n && board[x + 1][y] == 0) {

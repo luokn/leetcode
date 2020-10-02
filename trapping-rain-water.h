@@ -4,10 +4,9 @@
 using namespace std;
 
 class Solution {
-  public:
-    int trap(const vector<int> &height) {
-        if (height.empty())
-            return 0;
+public:
+    int trap(const vector<int>& height) {
+        if (height.empty()) return 0;
         auto max_val = numeric_limits<int>::min();
         auto max_idx = 0;
         for (auto i = 0; i < height.size(); ++i) {
@@ -21,8 +20,7 @@ class Solution {
 
         for (auto cur = 0; cur < max_idx;) {
             if (height[cur]) {
-                for (const auto left = cur++;
-                     cur <= max_idx && height[left] > height[cur]; ++cur)
+                for (const auto left = cur++; cur <= max_idx && height[left] > height[cur]; ++cur)
                     result += height[left] - height[cur];
             } else {
                 ++cur;
@@ -31,8 +29,7 @@ class Solution {
 
         for (auto cur = height.size() - 1; cur > max_idx;) {
             if (height[cur]) {
-                for (const auto right = cur--;
-                     cur >= max_idx && height[right] > height[cur]; --cur)
+                for (const auto right = cur--; cur >= max_idx && height[right] > height[cur]; --cur)
                     result += height[right] - height[cur];
             } else {
                 --cur;

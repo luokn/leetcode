@@ -10,14 +10,13 @@
 using namespace std;
 
 class Solution {
-  public:
-    int splitArray(const vector<int> &nums, int m) {
-        int64_t l = *max_element(nums.begin(), nums.end()),
-                r = accumulate(nums.begin(), nums.end(), 0i64);
+public:
+    int splitArray(const vector<int>& nums, int m) {
+        int64_t l = *max_element(nums.begin(), nums.end()), r = accumulate(nums.begin(), nums.end(), 0i64);
         while (l < r) {
-            int64_t s = 0, c = 1;
+            int64_t       s = 0, c = 1;
             const int64_t mid = (l + r) >> 1;
-            for (auto &&num : nums) {
+            for (auto&& num : nums) {
                 s += num;
                 if (s > mid) {
                     ++c;

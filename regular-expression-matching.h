@@ -3,10 +3,10 @@
 
 using namespace std;
 
-inline void print_dp(const vector<vector<bool>> &dp) {
+inline void print_dp(const vector<vector<bool>>& dp) {
     system("cls");
-    for (auto &&vector : dp) {
-        for (auto &&value : vector) {
+    for (auto&& vector : dp) {
+        for (auto&& value : vector) {
             cout << (value ? "O " : "X ");
         }
         cout << endl;
@@ -14,9 +14,9 @@ inline void print_dp(const vector<vector<bool>> &dp) {
 }
 
 class Solution {
-  public:
-    bool isMatch(const string &src, const string &reg) {
-        const size_t M = src.length(), N = reg.length();
+public:
+    bool isMatch(const string& src, const string& reg) {
+        const size_t         M = src.length(), N = reg.length();
         vector<vector<bool>> dp(M + 1, vector<bool>(N + 1, false));
         dp[0][0] = true;
         for (size_t i = 1; i <= M; ++i) {
@@ -34,8 +34,7 @@ class Solution {
                         dp[i + 1][j + 1] = dp[i + 1][j - 1];
                     }
                     if (reg[j - 1] == src[i] || reg[j - 1] == '.') {
-                        dp[i + 1][j + 1] =
-                            (dp[i][j + 1] || dp[i + 1][j] || dp[i + 1][j - 1]);
+                        dp[i + 1][j + 1] = (dp[i][j + 1] || dp[i + 1][j] || dp[i + 1][j - 1]);
                     }
                 }
                 // print_dp(mem);

@@ -5,10 +5,10 @@ using namespace std;
 using namespace utils;
 
 class Solution {
-  public:
-    vector<vector<int>> subsets(vector<int> &numbers) {
+public:
+    vector<vector<int>> subsets(vector<int>& numbers) {
         vector<vector<int>> res;
-        vector<int> t;
+        vector<int>         t;
         if (numbers.size() < 1) {
             res.push_back(t);
             return res;
@@ -34,10 +34,10 @@ class Solution {
 };
 
 inline void test() {
-    Solution solution;
+    Solution    solution;
     vector<int> vec{1, 2, 3, 4};
-    const auto res = solution.subsets(vec);
-    for (const auto &vector : res) {
+    const auto  res = solution.subsets(vec);
+    for (const auto& vector : res) {
         cout << vector << endl;
         cout << endl;
     }

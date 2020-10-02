@@ -4,10 +4,10 @@
 
 using namespace std;
 
-inline void print_dp(const vector<vector<int>> &dp) {
+inline void print_dp(const vector<vector<int>>& dp) {
     system("cls");
-    for (auto &&vec : dp) {
-        for (auto &&val : vec) {
+    for (auto&& vec : dp) {
+        for (auto&& val : vec) {
             cout << setw(4) << val;
         }
         cout << endl;
@@ -15,9 +15,9 @@ inline void print_dp(const vector<vector<int>> &dp) {
 }
 
 class Solution {
-  public:
-    int minDistance(const string &w1, const string &w2) {
-        const size_t M = w1.length(), N = w2.length();
+public:
+    int minDistance(const string& w1, const string& w2) {
+        const size_t        M = w1.length(), N = w2.length();
         vector<vector<int>> dp(M, vector<int>(N, 0));
         for (size_t i = 0; i <= M; ++i) {
             dp[i][0] = i;

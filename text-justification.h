@@ -9,17 +9,16 @@ using namespace std;
 using namespace utils;
 
 class Solution {
-  public:
-    vector<string> fullJustify(vector<string> &words, const int max_width) {
+public:
+    vector<string> fullJustify(vector<string>& words, const int max_width) {
         vector<string> lines;
-        string line;
+        string         line;
         line.reserve(max_width);
         for (int pos = 0; pos < words.size();) {
-            line = words[pos];
+            line            = words[pos];
             int n_intervals = 0, n_chars = words[pos].size(), line_cur = ++pos;
             while (pos < words.size()) {
-                if (n_chars + n_intervals + words[pos].size() >= max_width)
-                    break;
+                if (n_chars + n_intervals + words[pos].size() >= max_width) break;
                 n_chars += words[pos++].size();
                 ++n_intervals;
             }
@@ -36,7 +35,7 @@ class Solution {
                 line.resize(max_width, ' ');
             } else {
                 const int count = (max_width - n_chars) / n_intervals;
-                const int rest = (max_width - n_chars) % n_intervals;
+                const int rest  = (max_width - n_chars) % n_intervals;
                 for (int _ = 0; _ < rest; ++_, ++line_cur) {
                     line += string(count + 1, ' ');
                     line += words[line_cur];
@@ -54,17 +53,15 @@ class Solution {
 };
 
 inline void test() {
-    vector<string> words1{"This",          "is", "an", "example", "of", "text",
-                          "justification."};
-    vector<string> words2{"What",           "must",  "be",
-                          "acknowledgment", "shall", "be"};
-    Solution solution;
+    vector<string> words1{"This", "is", "an", "example", "of", "text", "justification."};
+    vector<string> words2{"What", "must", "be", "acknowledgment", "shall", "be"};
+    Solution       solution;
 
-    for (const auto &it : solution.fullJustify(words1, 16)) {
+    for (const auto& it : solution.fullJustify(words1, 16)) {
         cout << "\"" << it << "\"" << endl;
     }
     cout << endl;
-    for (const auto &it : solution.fullJustify(words2, 16)) {
+    for (const auto& it : solution.fullJustify(words2, 16)) {
         cout << "\"" << it << "\"" << endl;
     }
 }

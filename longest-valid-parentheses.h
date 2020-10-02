@@ -5,16 +5,15 @@
 using namespace std;
 
 class Solution {
-  public:
-    int longestValidParentheses(const string &str) {
+public:
+    int longestValidParentheses(const string& str) {
         int max_len = 0, idx = 0;
         while (idx < str.length()) {
             if (str[idx] == ')') {
                 ++idx;
                 continue;
             }
-            for (size_t i = 0, flag = 0; idx < str.length() && flag >= 0;
-                 ++i, ++idx) {
+            for (size_t i = 0, flag = 0; idx < str.length() && flag >= 0; ++i, ++idx) {
                 if (str[idx] == '(') {
                     ++flag;
                 } else {
@@ -36,8 +35,7 @@ class Solution {
                     ++flag;
                 else
                     --flag;
-                if (flag == 0)
-                    max_len = std::max(max_len, i + 1);
+                if (flag == 0) max_len = std::max(max_len, i + 1);
             }
         }
         return max_len;

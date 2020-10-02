@@ -10,8 +10,8 @@
 using namespace std;
 
 class Solution {
-  public:
-    int minArray(const std::vector<int> &numbers) {
+public:
+    int minArray(const std::vector<int>& numbers) {
         int l = 0, r = numbers.size() - 1;
         while (l < r) {
             const int m = (r + l) >> 1;

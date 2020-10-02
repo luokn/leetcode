@@ -9,8 +9,8 @@
 using namespace std;
 
 class Solution {
-  public:
-    vector<int> twoSum(const vector<int> &nums, int target) {
+public:
+    vector<int> twoSum(const vector<int>& nums, int target) {
         unordered_map<int, int> mp;
         for (int i = 0; i < nums.size(); ++i) {
             if (auto iter = mp.find(nums[i]); iter != mp.end()) {
@@ -23,8 +23,8 @@ class Solution {
     }
 };
 
-inline ostream &operator<<(ostream &os, const vector<int> &nums) {
-    for (auto &&num : nums) {
+inline ostream& operator<<(ostream& os, const vector<int>& nums) {
+    for (auto&& num : nums) {
         os << num << " ";
     }
     return os;

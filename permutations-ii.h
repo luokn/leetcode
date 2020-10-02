@@ -5,16 +5,15 @@ using namespace std;
 using namespace utils;
 
 class Solution {
-  public:
-    static vector<vector<int>> permute_unique(vector<int> &numbers) {
+public:
+    static vector<vector<int>> permute_unique(vector<int>& numbers) {
         std::sort(numbers.begin(), numbers.end());
         vector<vector<int>> res;
         permute_unique(numbers, 0, res);
         return res;
     }
 
-    static void permute_unique(vector<int> &numbers, const size_t hierarchy,
-                               vector<vector<int>> &res) {
+    static void permute_unique(vector<int>& numbers, const size_t hierarchy, vector<vector<int>>& res) {
         if (hierarchy + 1 == numbers.size()) {
             res.push_back(numbers);
         } else {

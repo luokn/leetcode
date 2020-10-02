@@ -5,10 +5,9 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     int lengthOfLongestSubstring(string s) {
-        if (s.length() < 2)
-            return s.length();
+        if (s.length() < 2) return s.length();
         int max_len = 0, len = 0, cur = 0;
         for (size_t i = 0; i < s.length(); ++i) {
             for (size_t j = cur; j < i; ++j) {

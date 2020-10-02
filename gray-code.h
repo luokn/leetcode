@@ -5,21 +5,19 @@
 using namespace std;
 
 class Solution {
-  public:
+public:
     vector<int> grayCode(const int n) {
-        vector<int> res;
+        vector<int>    res;
         const uint32_t len = 1 << n;
         res.reserve(len);
-        for (uint32_t i = 0; i < len; ++i) {
+        for (uint32_t i = 0; i < len; ++i)
             res.emplace_back(i ^ (i >> 1));
-        }
         return res;
     }
 };
 
 inline void test() {
-    Solution solution;
+    Solution   solution;
     const auto res = solution.grayCode(8);
-    for_each(res.cbegin(), res.cend(),
-             [](const int &v) { cout << bitset<8>(v) << endl; });
+    for_each(res.cbegin(), res.cend(), [](const int& v) { cout << bitset<8>(v) << endl; });
 }

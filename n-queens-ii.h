@@ -5,17 +5,15 @@
 using namespace std;
 
 class Solution {
-  public:
-    int totalNQueens(const int n)
-        : n_(n), map1_(n, true), map2_(2 * n - 1, true),
-          map3_(2 * n - 1, true) {
+public:
+    int totalNQueens(const int n) : n_(n), map1_(n, true), map2_(2 * n - 1, true), map3_(2 * n - 1, true) {
         solve(0);
         return result_;
     }
 
-  private:
-    int n_ = 0;
-    int result_ = 0;
+private:
+    int          n_      = 0;
+    int          result_ = 0;
     vector<bool> map1_, map2_, map3_;
 
     void solve(const int row) {

@@ -9,16 +9,13 @@
 using namespace std;
 
 class Solution {
-  public:
-    bool isSubsequence(const string &s, const string &t) {
+public:
+    bool isSubsequence(const string& s, const string& t) {
         const auto s_len = s.length(), t_len = t.length();
-        if (s_len == 0)
-            return true;
-        if (s_len > t_len)
-            return false;
+        if (s_len == 0) return true;
+        if (s_len > t_len) return false;
         for (size_t i = 0, j = 0; j < t_len; ++j) {
-            if (s[i] == t[j] && ++i == s_len)
-                return true;
+            if (s[i] == t[j] && ++i == s_len) return true;
         }
         return false;
     }

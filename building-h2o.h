@@ -11,16 +11,16 @@
 using namespace std;
 
 class H2O {
-  public:
+public:
     H2O() {}
 
-    void hydrogen(function<void()> &&release_hydrogen) {
+    void hydrogen(function<void()>&& release_hydrogen) {
 
         // releaseHydrogen() outputs "H". Do not change or remove this line.
         release_hydrogen();
     }
 
-    void oxygen(function<void()> &&release_oxygen) {
+    void oxygen(function<void()>&& release_oxygen) {
 
         // releaseOxygen() outputs "O". Do not change or remove this line.
         release_oxygen();
@@ -29,9 +29,9 @@ class H2O {
 
 inline void test() {
     auto release_hydrogen = [] { cout << "H"; };
-    auto release_oxygen = [] { cout << "O"; };
+    auto release_oxygen   = [] { cout << "O"; };
 
-    H2O h2o;
+    H2O    h2o;
     thread h_thread([&] { h2o.hydrogen(release_hydrogen); });
     thread o_thread([&] { h2o.oxygen(release_oxygen); });
     h_thread.join();
