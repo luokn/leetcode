@@ -1,9 +1,3 @@
-/*
- * https://leetcode-cn.com/problems/basic-calculator/
- */
-
-#pragma once
-
 #include "leetcode.h"
 
 using namespace std;

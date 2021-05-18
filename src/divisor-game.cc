@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/divisor-game/
-
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 

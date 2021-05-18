@@ -1,6 +1,3 @@
-// https://leetcode-cn.com/problems/4-sum/
-#pragma once
-
 #include "leetcode.h"
 
 using namespace std;

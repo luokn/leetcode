@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/longest-increasing-path-in-a-matrix/
-
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 #include <queue>

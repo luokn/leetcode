@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/unique-binary-search-trees-ii/submissions/
-
-#pragma once
-
 #include <iostream>
 #include <vector>
 

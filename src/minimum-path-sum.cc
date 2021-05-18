@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/minimum-path-sum/
-
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 #include <vector>

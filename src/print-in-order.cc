@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/print-in-order/
-
-#pragma once
-
 #include <algorithm>
 #include <condition_variable>
 #include <functional>

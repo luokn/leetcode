@@ -1,6 +1,3 @@
-// https://leetcode-cn.com/problems/smallest-range-covering-elements-from-k-lists/
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 #include <numeric>

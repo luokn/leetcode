@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/zui-xiao-tiao-yue-ci-shu/
-
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 #include <vector>

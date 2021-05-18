@@ -1,7 +1,5 @@
-// https://leetcode-cn.com/problems/integer-break/
-#pragma once
-
 #include <iostream>
+
 using namespace std;
 
 class Solution {

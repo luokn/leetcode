@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/magic-index-lcci/
-
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 #include <vector>

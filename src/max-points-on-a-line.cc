@@ -1,8 +1,3 @@
-/*
- * https://leetcode-cn.com/problems/max-points-on-a-line/
- */
-//
-#pragma once
 #include "leetcode.h"
 
 using namespace std;

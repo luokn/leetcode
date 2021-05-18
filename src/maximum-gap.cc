@@ -1,9 +1,3 @@
-/*
- * https://leetcode-cn.com/problems/maximum-gap/
- */
-
-#pragma once
-
 #include "leetcode.h"
 
 using namespace std;

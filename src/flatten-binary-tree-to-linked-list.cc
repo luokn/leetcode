@@ -1,6 +1,3 @@
-// https://leetcode-cn.com/problems/flatten-binary-tree-to-linked-list/
-#pragma once
-
 #include <algorithm>
 #include <stack>
 

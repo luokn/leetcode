@@ -1,9 +1,3 @@
-/*
- * https://leetcode-cn.com/problems/insert-interval/
- */
-
-#pragma once
-
 #include "leetcode.h"
 
 using namespace std;

@@ -1,9 +1,3 @@
-/*
- * https://leetcode-cn.com/problems/number-of-digit-one/
- */
-
-#pragma once
-
 #include "leetcode.h"
 
 using namespace std;

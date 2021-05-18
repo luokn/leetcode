@@ -1,6 +1,3 @@
-// https://leetcode-cn.com/problems/sudoku-solver/
-
-#pragma once
 #include "leetcode.h"
 
 using namespace std;

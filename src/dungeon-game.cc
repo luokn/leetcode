@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/dungeon-game/
-
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 #include <vector>

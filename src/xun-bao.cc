@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/xun-bao/
-
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 #include <string>

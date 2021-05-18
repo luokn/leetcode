@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/split-array-largest-sum/
-
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 #include <numeric>

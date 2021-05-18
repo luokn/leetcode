@@ -1,7 +1,3 @@
-/*
- * https://leetcode-cn.com/problems/text-justification/
- */
-
 #pragma once
 #include "leetcode.h"
 

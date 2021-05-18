@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/two-sum/
-
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 #include <unordered_map>

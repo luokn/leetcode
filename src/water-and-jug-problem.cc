@@ -1,4 +1,3 @@
-#pragma once
 #include "./leetcode.h"
 
 using namespace std;

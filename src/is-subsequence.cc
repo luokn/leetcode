@@ -1,7 +1,3 @@
-// https://leetcode-cn.com/problems/is-subsequence/
-
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 #include <string>

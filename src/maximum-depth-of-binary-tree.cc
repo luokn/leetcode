@@ -1,6 +1,3 @@
-// https://leetcode-cn.com/problems/maximum-depth-of-binary-tree/
-#pragma once
-
 #include <algorithm>
 #include <iostream>
 #include <queue>
