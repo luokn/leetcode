@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     bool canMeasureWater(const uint32_t size_1, const uint32_t size_2, const uint32_t target) {
         if (target == 0) return true;
         if (size_1 + size_2 < target) return false;
@@ -29,7 +29,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     assert(solution.canMeasureWater(3, 5, 4));
     assert(!solution.canMeasureWater(2, 6, 5));

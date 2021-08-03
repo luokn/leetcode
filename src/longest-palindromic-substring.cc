@@ -3,9 +3,9 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     string longestPalindrome(string s) {
-        const char* chars = s.c_str();
+        const char *chars = s.c_str();
         switch (s.length()) {
             case 0:
             case 1: return s;
@@ -43,7 +43,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution     solution;
     const string s = solution.longestPalindrome("babad");
     cout << s << endl;

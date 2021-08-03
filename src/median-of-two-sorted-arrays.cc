@@ -3,8 +3,8 @@
 using namespace std;
 
 class Solution {
-public:
-    double findMedianSortedArrays(vector<int>& numbers1, vector<int>& numbers2) {
+  public:
+    double findMedianSortedArrays(vector<int> &numbers1, vector<int> &numbers2) {
         const auto size = numbers1.size() + numbers2.size();
         auto       it1  = numbers1.begin();
         auto       it2  = numbers2.begin();
@@ -24,7 +24,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution    solution;
     vector<int> a{1, 3, 5, 7, 9};
     vector<int> b{5, 7, 9};

@@ -4,11 +4,13 @@
 using namespace std;
 
 class Solution {
-public:
-    bool divisorGame(int N) { return !(N & 1); }
+  public:
+    bool divisorGame(int N) {
+        return !(N & 1);
+    }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << (solution.divisorGame(2) ? "True" : "False") << endl;
 }

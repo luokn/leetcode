@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     int totalNQueens(const int n) {
         n_    = n;
         map1_ = vector<bool>(n, true);
@@ -13,7 +13,7 @@ public:
         return result_;
     }
 
-private:
+  private:
     int          n_      = 0;
     int          result_ = 0;
     vector<bool> map1_, map2_, map3_;
@@ -35,7 +35,7 @@ private:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.totalNQueens(4) << endl;
 }

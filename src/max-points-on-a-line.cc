@@ -3,8 +3,8 @@
 using namespace std;
 
 class Solution {
-public:
-    int maxPoints(const vector<vector<int>>& points) {
+  public:
+    int maxPoints(const vector<vector<int>> &points) {
         if (points.size() <= 2) return points.size();
         int max_count = 0;
         for (int i = 0; i < points.size(); ++i) {
@@ -19,7 +19,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.maxPoints({{1, 1}, {2, 2}, {3, 3}}) << endl;                         // 3
     cout << solution.maxPoints({{1, 1}, {3, 2}, {5, 3}, {4, 1}, {2, 3}, {1, 4}}) << endl; // 4

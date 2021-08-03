@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     int integerBreak(int n) {
         if (n == 2) return 1;
         if (n == 3) return 2;
@@ -26,9 +26,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
-    for (int i = 2; i < 12; i++) {
-        cout << solution.integerBreak(i) << endl;
-    }
+    for (int i = 2; i < 12; i++) { cout << solution.integerBreak(i) << endl; }
 }

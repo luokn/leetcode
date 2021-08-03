@@ -5,8 +5,8 @@ using namespace std;
 using namespace utils;
 
 class Solution {
-public:
-    vector<string> fullJustify(vector<string>& words, const int max_width) {
+  public:
+    vector<string> fullJustify(vector<string> &words, const int max_width) {
         vector<string> lines;
         string         line;
         line.reserve(max_width);
@@ -48,16 +48,12 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     vector<string> words1{"This", "is", "an", "example", "of", "text", "justification."};
     vector<string> words2{"What", "must", "be", "acknowledgment", "shall", "be"};
     Solution       solution;
 
-    for (const auto& it : solution.fullJustify(words1, 16)) {
-        cout << "\"" << it << "\"" << endl;
-    }
+    for (const auto &it : solution.fullJustify(words1, 16)) { cout << "\"" << it << "\"" << endl; }
     cout << endl;
-    for (const auto& it : solution.fullJustify(words2, 16)) {
-        cout << "\"" << it << "\"" << endl;
-    }
+    for (const auto &it : solution.fullJustify(words2, 16)) { cout << "\"" << it << "\"" << endl; }
 }

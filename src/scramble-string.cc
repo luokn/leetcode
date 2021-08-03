@@ -3,8 +3,8 @@
 using namespace std;
 
 class Solution {
-public:
-    int minCut(const string& s) {
+  public:
+    int minCut(const string &s) {
         if (s.empty()) return 0;
         const int            n = s.size();
         vector<vector<bool>> p(n, vector<bool>(n, false));
@@ -22,7 +22,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.minCut("1") << endl;
 }

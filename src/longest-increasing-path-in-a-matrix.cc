@@ -6,38 +6,34 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     int res    = 0;
     int dir[5] = {0, 1, 0, -1, 0};
     int M, N;
-    int dfs(vector<vector<int>>& dp, const vector<vector<int>>& matrix, int x, int y, int len) {
+    int dfs(vector<vector<int>> &dp, const vector<vector<int>> &matrix, int x, int y, int len) {
         if (dp[x][y] != -1) return dp[x][y];
         // int tmp = len;
         for (int i = 0; i < 4; i++) {
             int tx = x + dir[i];
             int ty = y + dir[i + 1];
             if (tx >= 0 && tx < M && ty >= 0 && ty < N) {
-                if (matrix[tx][ty] > matrix[x][y]) {
-                    dp[x][y] = max(dp[x][y], dfs(dp, matrix, tx, ty, len + 1));
-                }
+                if (matrix[tx][ty] > matrix[x][y]) { dp[x][y] = max(dp[x][y], dfs(dp, matrix, tx, ty, len + 1)); }
             }
         }
         return ++dp[x][y];
     }
-    int longestIncreasingPath(const vector<vector<int>>& matrix) {
+    int longestIncreasingPath(const vector<vector<int>> &matrix) {
         if (matrix.empty() || matrix.front().size()) return 0;
         M = matrix.size(), N = matrix.front().size();
         vector<vector<int>> dp(M, vector<int>(N, -1));
         for (int i = 0; i < M; i++) {
-            for (int j = 0; j < N; j++) {
-                res = max(res, dfs(dp, matrix, i, j, 1));
-            }
+            for (int j = 0; j < N; j++) { res = max(res, dfs(dp, matrix, i, j, 1)); }
         }
         return ++res;
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.longestIncreasingPath({{9, 9, 4}, {6, 6, 8}, {2, 1, 1}}) << endl; // 4
     cout << solution.longestIncreasingPath({{3, 4, 5}, {3, 2, 6}, {2, 2, 1}}) << endl; // 4

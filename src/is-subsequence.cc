@@ -5,8 +5,8 @@
 using namespace std;
 
 class Solution {
-public:
-    bool isSubsequence(const string& s, const string& t) {
+  public:
+    bool isSubsequence(const string &s, const string &t) {
         const auto s_len = s.length(), t_len = t.length();
         if (s_len == 0) return true;
         if (s_len > t_len) return false;
@@ -17,7 +17,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.isSubsequence("abc", "ahbgdc") << endl; // True
     cout << solution.isSubsequence("axc", "ahbgdc") << endl; // Falsea

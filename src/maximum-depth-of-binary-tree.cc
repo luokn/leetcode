@@ -6,13 +6,13 @@ using namespace std;
 
 struct TreeNode {
     int       value;
-    TreeNode* left;
-    TreeNode* right;
+    TreeNode *left;
+    TreeNode *right;
     TreeNode(int x) : value(x), left(nullptr), right(nullptr) {}
 };
 
-inline TreeNode* N(int val, TreeNode* ln = nullptr, TreeNode* rn = nullptr) {
-    TreeNode* node = new TreeNode(val);
+inline TreeNode *N(int val, TreeNode *ln = nullptr, TreeNode *rn = nullptr) {
+    TreeNode *node = new TreeNode(val);
     node->left     = ln;
     node->right    = rn;
     return node;
@@ -27,15 +27,15 @@ inline TreeNode* N(int val, TreeNode* ln = nullptr, TreeNode* rn = nullptr) {
 // };
 
 class Solution {
-public:
-    int maxDepth(TreeNode* root) {
+  public:
+    int maxDepth(TreeNode *root) {
         if (root == nullptr) return 0;
-        queue<TreeNode*> q;
+        queue<TreeNode *> q;
         q.emplace(root);
         size_t depth = 0;
         for (; !q.empty(); ++depth) {
             for (size_t i = 0, len = q.size(); i < len; ++i) {
-                TreeNode* node = q.front();
+                TreeNode *node = q.front();
                 q.pop();
                 if (node->left) q.emplace(node->left);
                 if (node->right) q.emplace(node->right);
@@ -45,8 +45,8 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution  solution;
-    TreeNode* root = N(3, N(9), N(20, N(15), N(7)));
+    TreeNode *root = N(3, N(9), N(20, N(15), N(7)));
     cout << solution.maxDepth(root) << endl;
 }

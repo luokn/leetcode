@@ -3,12 +3,10 @@
 using namespace std;
 
 class Solution {
-public:
-    string minWindow(const string& str, const string& tar) {
+  public:
+    string minWindow(const string &str, const string &tar) {
         unordered_map<char, bool> map;
-        for (auto ch : tar) {
-            map[ch] = false;
-        }
+        for (auto ch : tar) { map[ch] = false; }
         auto       m_width = INT32_MAX, m_l = 0, m_r = 0, counter = 0, cur = 0;
         deque<int> dq;
         for (; cur < str.length() && dq.size() < tar.length(); ++cur) {
@@ -21,9 +19,7 @@ public:
             }
         }
 
-        if (dq.size() < tar.size()) {
-            return "";
-        }
+        if (dq.size() < tar.size()) { return ""; }
 
         if (counter == tar.size()) {
             m_r     = dq.front() + 1;
@@ -60,7 +56,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.minWindow("aa", "aa");
 }

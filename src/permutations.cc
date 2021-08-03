@@ -3,8 +3,8 @@
 using namespace std;
 
 class Solution {
-public:
-    vector<vector<int>> permute(vector<int>& numbers) const {
+  public:
+    vector<vector<int>> permute(vector<int> &numbers) const {
         switch (numbers.size()) {
             case 0: return {};
             case 1: return {numbers};
@@ -12,9 +12,7 @@ public:
             default: {
                 vector<vector<int>> res;
                 uint64_t            count = 1;
-                for (size_t i = 2; i <= numbers.size(); ++i) {
-                    count *= i;
-                }
+                for (size_t i = 2; i <= numbers.size(); ++i) { count *= i; }
                 res.reserve(count);
                 permute_recursion(numbers, 0, res);
                 return res;
@@ -22,7 +20,7 @@ public:
         }
     }
 
-    void permute_recursion(vector<int>& numbers, const size_t hierarchy, vector<vector<int>>& out) const {
+    void permute_recursion(vector<int> &numbers, const size_t hierarchy, vector<vector<int>> &out) const {
         if (hierarchy + 1 == numbers.size()) {
             out.emplace_back(numbers);
         } else {
@@ -36,14 +34,12 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution    solution;
     vector<int> numbers{1, 2, 3};
     auto        res = solution.permute(numbers);
-    for (auto&& vector : res) {
-        for (auto&& value : vector) {
-            cout << value << " ";
-        }
+    for (auto &&vector : res) {
+        for (auto &&value : vector) { cout << value << " "; }
         cout << endl;
     }
 }

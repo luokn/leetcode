@@ -3,8 +3,8 @@
 using namespace std;
 
 class Solution {
-public:
-    vector<int> spiralOrder(vector<vector<int>>& matrix) {
+  public:
+    vector<int> spiralOrder(vector<vector<int>> &matrix) {
         vector<int> res;
         if (matrix.empty()) return res;
         res.reserve(matrix.size() * matrix[0].size());
@@ -32,16 +32,12 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution            solution;
     vector<vector<int>> matrix0{{1, 1, 1, 1, 1}, {2, 2, 2, 2, 2}, {3, 3, 3, 3, 3}, {4, 4, 4, 4, 4}};
     vector<vector<int>> matrix1{{1}, {2}, {3}, {4}};
 
-    for (auto&& value : solution.spiralOrder(matrix0)) {
-        cout << value << " ";
-    }
+    for (auto &&value : solution.spiralOrder(matrix0)) { cout << value << " "; }
     cout << endl;
-    for (auto&& value : solution.spiralOrder(matrix1)) {
-        cout << value << " ";
-    }
+    for (auto &&value : solution.spiralOrder(matrix1)) { cout << value << " "; }
 }

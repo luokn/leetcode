@@ -4,8 +4,8 @@ using namespace std;
 using namespace utils;
 
 class Solution {
-public:
-    vector<vector<int>> insert(vector<vector<int>>& intervals, vector<int>& new_interval) {
+  public:
+    vector<vector<int>> insert(vector<vector<int>> &intervals, vector<int> &new_interval) {
         vector<vector<int>> new_intervals;
         size_t              idx = 0;
         while (idx < intervals.size() && new_interval[0] > intervals[idx][0]) new_intervals.push_back(intervals[idx++]);
@@ -24,7 +24,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution            solution;
     vector<vector<int>> intervals{{1, 3}, {6, 9}};
     vector<int>         new_interval{2, 5};

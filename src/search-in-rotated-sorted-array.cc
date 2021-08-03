@@ -3,15 +3,15 @@
 using namespace std;
 
 class Solution {
-public:
-    int search(vector<int>& numbers, const int target) {
+  public:
+    int search(vector<int> &numbers, const int target) {
         if (numbers.empty()) return -1;
         auto index = -1;
         search(numbers, target, 0, numbers.size() - 1, index);
         return index;
     }
 
-    void search(vector<int>& numbers, int target, int start, int end, int& out) {
+    void search(vector<int> &numbers, int target, int start, int end, int &out) {
         switch (end - start) {
             case 0:
                 if (numbers[start] == target) out = start;
@@ -40,7 +40,7 @@ public:
         }
     }
 
-    void binary_search(vector<int>& numbers, const int target, const int start, const int end, int& out) {
+    void binary_search(vector<int> &numbers, const int target, const int start, const int end, int &out) {
         switch (end - start) {
             case 0:
                 if (numbers[start] == target) out = start;
@@ -63,7 +63,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution    solution;
     vector<int> vec{4, 5, 6, 7, 0, 1, 2};
     cout << solution.search(vec, 0);

@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     int lengthOfLongestSubstring(string s) {
         if (s.length() < 2) return s.length();
         int max_len = 0, len = 0, cur = 0;
@@ -15,15 +15,13 @@ public:
                 }
             }
             len = i - cur + 1;
-            if (len > max_len) {
-                max_len = len;
-            }
+            if (len > max_len) { max_len = len; }
         }
         return max_len;
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.lengthOfLongestSubstring("abcabcbb") << endl;
 }

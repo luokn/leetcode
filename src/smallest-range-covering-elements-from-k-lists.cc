@@ -7,14 +7,14 @@
 using namespace std;
 
 class Solution {
-public:
-    vector<int> smallestRange(const vector<vector<int>>& nums) {
+  public:
+    vector<int> smallestRange(const vector<vector<int>> &nums) {
         const int                       N    = nums.size();
         int                             xmin = INT_MAX, xmax = INT_MIN;
         unordered_map<int, vector<int>> indices;
 
         for (int i = 0; i < N; ++i) {
-            for (auto&& x : nums[i]) {
+            for (auto &&x : nums[i]) {
                 indices[x].push_back(i);
                 xmin = min(xmin, x);
                 xmax = max(xmax, x);
@@ -29,7 +29,7 @@ public:
         while (r < xmax) {
             ++r;
             if (indices.count(r)) {
-                for (auto&& x : indices[r]) {
+                for (auto &&x : indices[r]) {
                     ++freq[x];
                     if (freq[x] == 1) ++inside;
                 }
@@ -39,7 +39,7 @@ public:
                         best_r = r;
                     }
                     if (indices.count(l)) {
-                        for (auto&& x : indices[l]) {
+                        for (auto &&x : indices[l]) {
                             --freq[x];
                             if (freq[x] == 0) --inside;
                         }
@@ -53,14 +53,12 @@ public:
     }
 };
 
-ostream& operator<<(ostream& os, const vector<int>& vec) {
-    for (auto&& i : vec) {
-        cout << i << " ";
-    }
+ostream &operator<<(ostream &os, const vector<int> &vec) {
+    for (auto &&i : vec) { cout << i << " "; }
     return os;
 }
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.smallestRange({{4, 10, 15, 24, 26}, {0, 9, 12, 20}, {5, 18, 22, 30}}) << endl;
 }

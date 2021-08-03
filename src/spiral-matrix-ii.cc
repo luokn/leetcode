@@ -3,10 +3,10 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     vector<vector<int>> generateMatrix(int n) {
         vector<vector<int>> res(n);
-        for (auto& vector : res) vector.resize(n);
+        for (auto &vector : res) vector.resize(n);
         auto x = 0, y = n - 1, cur = 0;
         n = 0;
         while (y > x) {
@@ -29,13 +29,11 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     auto     matrix = solution.generateMatrix(10);
-    for (auto&& vector : matrix) {
-        for (auto&& value : vector) {
-            cout << setiosflags(ios::left) << setw(5) << value;
-        }
+    for (auto &&vector : matrix) {
+        for (auto &&value : vector) { cout << setiosflags(ios::left) << setw(5) << value; }
         cout << endl;
     }
 }

@@ -3,8 +3,8 @@
 using namespace std;
 
 class Solution {
-public:
-    int firstMissingPositive(const vector<int>& numbers) {
+  public:
+    int firstMissingPositive(const vector<int> &numbers) {
         vector<bool> vec(numbers.size(), false);
         for (const int value : numbers) {
             if (value > 0 && value <= numbers.size()) vec[value - 1] = true;
@@ -16,7 +16,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.firstMissingPositive({2, 3, 4, 5, -1});
 }

@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     enum S { S0, S1, S2, S3, S4, S5, S6, S7, S8, S9, S10, F, A };
 
     S tb[11][6]{
@@ -12,9 +12,9 @@ public:
         {F, S8, F, F, F, A},    {S9, S8, F, F, F, A},  {S9, S8, F, F, F, F},
     };
 
-    bool isNumber(const string& str) {
+    bool isNumber(const string &str) {
         S s = S0;
-        for (const char* ch = str.c_str(); s != A && s != F; ++ch) {
+        for (const char *ch = str.c_str(); s != A && s != F; ++ch) {
             switch (*ch) {
                 case ' ': s = tb[s][1]; break;
                 case '+': s = tb[s][2]; break;
@@ -45,13 +45,11 @@ public:
     "-+3" => false
     "95a54e53" => false
 */
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution          solution;
     map<string, bool> mp{{"0", true},        {" 0.1 ", true},  {"abc", false}, {"1 a", false},     {"2e10", true},
                          {" -90e3  ", true}, {" 1e", false},   {"e3", false},  {" 6e-1", true},    {" 99e2.5 ", false},
                          {"53.5e93", true},  {" --6 ", false}, {"-+3", false}, {"95a54e53", false}};
 
-    for (const auto& [s, r] : mp) {
-        cout << (solution.isNumber(s) == r ? "O " : "X ") << s << endl;
-    }
+    for (const auto &[s, r] : mp) { cout << (solution.isNumber(s) == r ? "O " : "X ") << s << endl; }
 }

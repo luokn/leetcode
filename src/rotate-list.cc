@@ -4,10 +4,10 @@ using namespace std;
 using namespace utils;
 
 class Solution {
-public:
-    ListNode* rotateRight(ListNode* head, int k) {
+  public:
+    ListNode *rotateRight(ListNode *head, int k) {
         if (head == nullptr) return nullptr;
-        ListNode* tail  = nullptr;
+        ListNode *tail  = nullptr;
         auto      count = 1;
         for (tail = head; tail->next != nullptr; tail = tail->next) ++count;
         tail->next = head;
@@ -20,7 +20,7 @@ public:
     };
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution          solution;
     const vector<int> vec{0};
     const auto        node = make_nodes(vec);

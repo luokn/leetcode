@@ -2,19 +2,17 @@
 
 using namespace std;
 
-inline void print_dp(const vector<vector<bool>>& dp) {
+inline void print_dp(const vector<vector<bool>> &dp) {
     system("cls");
-    for (auto&& vector : dp) {
-        for (auto&& val : vector) {
-            cout << (val ? "T" : "F") << " ";
-        }
+    for (auto &&vector : dp) {
+        for (auto &&val : vector) { cout << (val ? "T" : "F") << " "; }
         cout << endl;
     }
 }
 
 class Solution {
-public:
-    bool isInterleave(const string& src1, const string& src2, const string& comp) {
+  public:
+    bool isInterleave(const string &src1, const string &src2, const string &comp) {
         const size_t M = src1.size(), N = src2.size();
         if (M + N != comp.size()) return false;
         vector<vector<bool>> dp(M + 1, vector<bool>(N + 1, false));
@@ -38,7 +36,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.isInterleave("aabcc", "dbbca", "aadbbcbcac");
 }

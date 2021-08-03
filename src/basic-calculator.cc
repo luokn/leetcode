@@ -3,13 +3,13 @@
 using namespace std;
 
 class Solution {
-public:
-    int calculate(const string& str) {
+  public:
+    int calculate(const string &str) {
         size_t idx = 0;
         return calculate(str, idx);
     }
 
-    int calculate(const string& str, size_t& idx) const {
+    int calculate(const string &str, size_t &idx) const {
         int64_t res = 0;
         for (char opr = '+'; idx < str.size();) {
             switch (str[idx]) {
@@ -23,9 +23,7 @@ public:
                 default:
                     if (isdigit(str[idx])) {
                         int64_t x = str[idx++] - '0';
-                        while (idx < str.size() && isdigit(str[idx])) {
-                            x = x * 10 + str[idx++] - '0';
-                        }
+                        while (idx < str.size() && isdigit(str[idx])) { x = x * 10 + str[idx++] - '0'; }
                         res += opr == '+' ? x : -x;
                     } else {
                         ++idx;
@@ -37,7 +35,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.calculate("1-(2-(3-2))") << endl;         // 0
     cout << solution.calculate("1 + 1") << endl;               // 2

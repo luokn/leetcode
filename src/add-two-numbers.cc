@@ -4,8 +4,8 @@ using namespace std;
 using namespace utils;
 
 class Solution {
-public:
-    ListNode* addTwoNumbers(ListNode* ln, ListNode* rn) {
+  public:
+    ListNode *addTwoNumbers(ListNode *ln, ListNode *rn) {
         int32_t   val = 0, flow = 0;
         ListNode *ret = nullptr, *cur = nullptr;
 
@@ -42,19 +42,17 @@ public:
             cur       = cur->next;
         }
 
-        if (flow != 0) {
-            cur->next = new ListNode{flow};
-        }
+        if (flow != 0) { cur->next = new ListNode{flow}; }
         return ret;
     }
 };
 
-int main(int argc, char const* argv[]) {
-    ListNode* a = make_nodes({2, 4, 3});
-    ListNode* b = make_nodes({5, 6, 7, 2});
+int main(int argc, char const *argv[]) {
+    ListNode *a = make_nodes({2, 4, 3});
+    ListNode *b = make_nodes({5, 6, 7, 2});
 
     Solution  solution;
-    ListNode* res = solution.addTwoNumbers(a, b);
+    ListNode *res = solution.addTwoNumbers(a, b);
     print_nodes(res);
     del_nodes(a);
     del_nodes(b);

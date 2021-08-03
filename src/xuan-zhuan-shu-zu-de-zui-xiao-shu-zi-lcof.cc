@@ -6,8 +6,8 @@
 using namespace std;
 
 class Solution {
-public:
-    int minArray(const std::vector<int>& numbers) {
+  public:
+    int minArray(const std::vector<int> &numbers) {
         int l = 0, r = numbers.size() - 1;
         while (l < r) {
             const int m = (r + l) >> 1;
@@ -23,7 +23,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.minArray({3, 4, 5, 1, 2}) << endl;
 }

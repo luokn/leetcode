@@ -3,8 +3,8 @@
 using namespace std;
 
 class Solution {
-public:
-    int largestRectangleArea(vector<int>& heights) {
+  public:
+    int largestRectangleArea(vector<int> &heights) {
         heights.push_back(0);
         stack<int> stack;
         int        max_area = 0;
@@ -21,7 +21,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution    solution;
     vector<int> vec{2, 1, 5, 6, 2, 3};
     cout << solution.largestRectangleArea(vec);

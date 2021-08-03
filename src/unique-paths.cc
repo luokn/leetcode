@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     int uniquePaths(int m, int n) {
         if (m == 1 || n == 1) return 1;
         vector<int> buffer(m, 1);
@@ -13,12 +13,10 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     for (auto i = 2; i < 10; ++i) {
-        for (auto j = 1; j < i; ++j) {
-            cout << setiosflags(ios::left) << setw(5) << solution.uniquePaths(i, j);
-        }
+        for (auto j = 1; j < i; ++j) { cout << setiosflags(ios::left) << setw(5) << solution.uniquePaths(i, j); }
         cout << endl;
     }
 }

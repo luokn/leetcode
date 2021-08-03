@@ -4,8 +4,8 @@ using namespace std;
 using namespace utils;
 
 class Solution {
-public:
-    int jump(const vector<int>& numbers) {
+  public:
+    int jump(const vector<int> &numbers) {
         if (numbers.size() < 2) return 0;
         vector<int> dp(numbers.size(), 0);
         dp[numbers.size() - 1] = -1;
@@ -23,7 +23,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.jump({4, 2, 3, 1, 2, 6, 1, 5, 1, 1, 0, 1, 2, 0, 0, 0, 0, 0}) << endl;
 }

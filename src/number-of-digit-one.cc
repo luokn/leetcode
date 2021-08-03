@@ -3,7 +3,7 @@
 using namespace std;
 
 class Solution {
-public:
+  public:
     int countDigitOne(const int n) {
         int64_t counter = 0;
         for (int64_t x = 1, div = 10; x <= n; x = div, div *= 10) {
@@ -13,7 +13,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.countDigitOne(13) << endl; // 6 = 4 + 2
     cout << solution.countDigitOne(41) << endl; // 15 = 10 + 5

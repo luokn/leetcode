@@ -3,8 +3,8 @@
 using namespace std;
 
 class Solution {
-public:
-    int maxArea(const vector<int>& height) {
+  public:
+    int maxArea(const vector<int> &height) {
         switch (height.size()) {
             case 0:
             case 1: return 0;
@@ -20,16 +20,14 @@ public:
                         --r;
                     }
                     const auto area = h * (r - l + 1);
-                    if (area > max_area) {
-                        max_area = area;
-                    }
+                    if (area > max_area) { max_area = area; }
                 }
                 return max_area;
         }
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     vector<int> vec{1, 8, 6, 2, 5, 4, 8, 3, 7};
     Solution    solution;
     std::cout << solution.maxArea(vec);

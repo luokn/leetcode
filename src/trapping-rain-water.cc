@@ -3,8 +3,8 @@
 using namespace std;
 
 class Solution {
-public:
-    int trap(const vector<int>& height) {
+  public:
+    int trap(const vector<int> &height) {
         if (height.empty()) return 0;
         auto max_val = numeric_limits<int>::min();
         auto max_idx = 0;
@@ -38,7 +38,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.trap({0, 1, 0, 2, 1, 0, 1, 2, 2, 1, 2, 1}) << endl;
 }

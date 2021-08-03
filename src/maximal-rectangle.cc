@@ -3,8 +3,8 @@
 using namespace std;
 
 class Solution {
-public:
-    int maximalRectangle(vector<vector<char>>& matrix) {
+  public:
+    int maximalRectangle(vector<vector<char>> &matrix) {
         if (matrix.empty() || matrix.front().empty()) return 0;
         const size_t M = matrix.size(), N = matrix.front().size();
         auto         max_area = 0;
@@ -25,7 +25,7 @@ public:
         return max_area;
     }
 
-    void row_max_area(const vector<int>& hts, stack<int>& stk, int& out) const {
+    void row_max_area(const vector<int> &hts, stack<int> &stk, int &out) const {
         for (size_t i = 0; i < hts.size(); ++i) {
             while (!stk.empty() && hts[stk.top()] > hts[i]) {
                 const int top = stk.top();
@@ -38,7 +38,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution             solution;
     vector<vector<char>> matrix{{'1', '0', '1', '0', '0'},
                                 {'1', '0', '1', '1', '1'},

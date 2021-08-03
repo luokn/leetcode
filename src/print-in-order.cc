@@ -8,16 +8,16 @@
 using namespace std;
 
 class Foo {
-public:
+  public:
     Foo() {}
 
-    void first(function<void()>&& fn) {
+    void first(function<void()> &&fn) {
         fn();
         flags_[0] = true;
         cv_.notify_all();
     }
 
-    void second(function<void()>&& fn) {
+    void second(function<void()> &&fn) {
         unique_lock<mutex> lock(mtx_);
         cv_.wait(lock, [this] { return flags_[0]; });
         fn();
@@ -25,19 +25,19 @@ public:
         cv_.notify_all();
     }
 
-    void third(function<void()>&& fn) {
+    void third(function<void()> &&fn) {
         unique_lock<mutex> lock(mtx_);
         cv_.wait(lock, [this] { return flags_[1]; });
         fn();
     }
 
-private:
+  private:
     mutex              mtx_;
     condition_variable cv_;
     bool               flags_[2]{false, false};
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Foo  foo;
     auto one   = [] { cout << "one"; };
     auto two   = [] { cout << "two"; };

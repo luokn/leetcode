@@ -3,8 +3,8 @@
 using namespace std;
 
 class Solution {
-public:
-    int longestValidParentheses(const string& str) {
+  public:
+    int longestValidParentheses(const string &str) {
         int max_len = 0, idx = 0;
         while (idx < str.length()) {
             if (str[idx] == ')') {
@@ -17,9 +17,7 @@ public:
                 } else {
                     --flag;
                 }
-                if (flag == 0) {
-                    max_len = std::max(max_len, static_cast<int>(i + 1));
-                }
+                if (flag == 0) { max_len = std::max(max_len, static_cast<int>(i + 1)); }
             }
         }
         idx = str.length() - 1;
@@ -40,7 +38,7 @@ public:
     }
 };
 
-int main(int argc, char const* argv[]) {
+int main(int argc, char const *argv[]) {
     Solution solution;
     cout << solution.longestValidParentheses("((()()(()((()") << endl;
 }
