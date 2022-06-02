@@ -1,12 +1,11 @@
 cmake_minimum_required(VERSION 3.12)
 
 project(leetcode)
-
 set(CMAKE_CXX_STANDARD 17)
 
-file(GLOB main_files LIST_DIRECTORIES false RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cc)
-foreach(main_file IN LISTS main_files)
-    cmake_path(GET main_file STEM main_name)
-    add_executable(${main_name} ${main_file})
-    message("[${main_name}] ${main_file}")
+file(GLOB src_files LIST_DIRECTORIES false RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} *.cc)
+foreach(file IN LISTS src_files)
+    get_filename_component(exec ${file} NAME_WE)
+    add_executable(${exec} ${file})
+    message("${file} => [${exec}]")
 endforeach()

@@ -1,0 +1,15 @@
+AlignConsecutiveAssignments: true
+AlignConsecutiveDeclarations: true
+AlignEscapedNewlinesLeft: true
+AlignOperands: true
+AllowAllParametersOfDeclarationOnNextLine: true
+AllowShortCaseLabelsOnASingleLine: true
+AllowShortFunctionsOnASingleLine: Empty
+AllowShortIfStatementsOnASingleLine: true
+BasedOnStyle: Google
+ColumnLimit: 120
+IndentWidth: 4
+IndentWrappedFunctionNames: true
+Language: Cpp
+PointerAlignment: Right
+SpaceAfterCStyleCast: true
